@@ -27,4 +27,16 @@ router.get('/map', async function(req,res,next) {
 
 });
 
+router.get('/table', async function(req,res,next) {
+  res.render('table');
+
+});
+
+router.get('/about', async function(req,res,next) {
+  res.render('about');
+
+});
+
+
+
 module.exports = router;
