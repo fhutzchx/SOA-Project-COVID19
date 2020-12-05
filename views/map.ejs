@@ -17,6 +17,14 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 
     <!-- Styles -->
     <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
@@ -107,6 +115,13 @@
                         data-pagination="false" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true">
                     </table>
                 </div>
+                
+                <div class="mt-5">
+                    <div id="map" style="height: 500px;">
+
+                    </div>
+                </div>
+
 
                 <!-- jquery vendor -->
                 <script src="assets/js/lib/jquery.min.js"></script>
@@ -129,8 +144,10 @@
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
                 <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
-                <script
-                    src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+                <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+                <script src="/js/map.js"></script>
+                <script>getMap(`<%-JSON.stringify(maps)%>`)</script>
+
 
 </body>
 

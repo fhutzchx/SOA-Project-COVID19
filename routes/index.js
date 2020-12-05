@@ -4,7 +4,18 @@ const Db = require('../Db/database');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const result = await Db.getAllCountry();
+  
+  res.render('index');
+});
+
+router.get('/map', async function(req,res,next) {
+  const getLatlong = await Db.getLatLong();
+  res.render('map', { maps: getLatlong.rows });
+
+});
+
+router.get('/table', async function(req,res,next) {
+const result = await Db.getAllCountry();
   const confirmed = await Db.getAllConfirmed();
   const recovered = await Db.getAllRecovered();
   const death = await Db.getAllDeath();
@@ -19,16 +30,8 @@ router.get('/', async function(req, res, next) {
       death: death.rows[key].confirmed,
     }
   }
-  res.render('index', { countrys: objectCountry });
-});
 
-router.get('/map', async function(req,res,next) {
-  res.render('map');
-
-});
-
-router.get('/table', async function(req,res,next) {
-  res.render('table');
+  res.render('table', { countrys: objectCountry });
 
 });
 

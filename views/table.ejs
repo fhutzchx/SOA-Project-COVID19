@@ -107,6 +107,41 @@
                         data-pagination="false" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true">
                     </table>
 
+                    <div class=" container ">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Country</th>
+                                    <th>Confirmed</th>
+                                    <th>Recovered</th>
+                                    <th>Deaths</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% countrys.forEach(function(data){ %>
+                                    <tr>
+                                        <td>
+                                            <%= data.state %>
+                                        </td>
+                                        <td>
+                                            <%= data.country %>
+                                        </td>
+                                        <td>
+                                            <%= data.confirmed %>
+                                        </td>
+                                        <td>
+                                            <%= data.recovered %>
+                                        </td>
+                                        <td>
+                                            <%= data.death %>
+                                        </td>
+                                    </tr>
+                                    <% })  %>
+                            </tbody>
+                        </table>
+                    </div>
+
 
                 <!-- jquery vendor -->
                 <script src="assets/js/lib/jquery.min.js"></script>
