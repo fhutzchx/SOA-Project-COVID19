@@ -7,6 +7,8 @@ password: '1234',
 port: 5432,
 })
 
+
+///////////////////// getTable /////////////////////
 const getAllCountry = async() => {
     const sql= `SELECT "Province/State" as State, "Country/Region" as Country from covid19_confirmed_csv`
     try {
@@ -61,103 +63,8 @@ const getLatLong = async () => {
         return null;
     }
 }
+///////////////////// End getChart /////////////////////
 
-const getAllConfirmedByCountry = async (Country) => {
-    const sql = `SELECT * from covid19_confirmed_csv where "Country/Region" = '${Country}' `;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getAllRecoveredByCountry = async (Country) => {
-    const sql = `SELECT * from covid19_recovered_csv where "Country/Region" = '${Country}' `;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getAllDeathsByCountry = async (Country) => {
-    const sql = `SELECT * from covid19_death_csv where "Country/Region" = '${Country}' `;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getAllConfirmedByState = async (State) => {
-    const sql = `SELECT * from covid19_confirmed_csv where "Province/State" = '${State}'`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getAllRecoveredByState = async (State) => {
-    const sql = `SELECT * from covid19_recovered_csv where "Province/State" = '${State}'`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getAllDeathsByState = async (State) => {
-    const sql = `SELECT * from covid19_death_csv where "Province/State" = '${State}'`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const getLatLongCountry = async () => {
-    const sql = `select "Province/State" as State, "Country/Region" as Country, lat, long from covid19_confirmed_csv`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-const getLastUpdateRecovered = async () => {
-    const sql = `SELECT "3/22/20" as Recovered from covid19_recovered_csv`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-const getLastUpdateDeaths = async () => {
-    const sql = `SELECT "3/22/20" as Deaths from covid19_death_csv`;
-    try {
-        const data = await pool.query(sql);
-        return data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
 
 
 ///////////////////// getChart /////////////////////
@@ -261,15 +168,6 @@ module.exports = {
     getAllRecovered,
     getAllDeath,
     getLatLong,
-    getAllConfirmedByCountry,
-    getAllRecoveredByCountry,
-    getAllDeathsByCountry,
-    getAllConfirmedByState,
-    getAllRecoveredByState,
-    getAllDeathsByState,
-    getLatLongCountry,
-    getLastUpdateRecovered,
-    getLastUpdateDeaths,
     getTotalConfirmed,
     getTotalRecovered,
     getTotalDeaths,
