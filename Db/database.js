@@ -63,7 +63,7 @@ const getLatLong = async () => {
         return null;
     }
 }
-///////////////////// End getChart /////////////////////
+///////////////////// End getTable /////////////////////
 
 
 
@@ -162,6 +162,10 @@ const getLastWeekDeaths = async () => {
 ///////////////////// End getChart /////////////////////
 
 
+
+
+
+
 module.exports = {
     getAllCountry,
     getAllConfirmed,
@@ -173,8 +177,6 @@ module.exports = {
     getTotalDeaths,
     getLastWeekConfirmed,
     getLastWeekRecovered,
-    getLastWeekDeaths
-
-
+    getLastWeekDeaths,
 
 }

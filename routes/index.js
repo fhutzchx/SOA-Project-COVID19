@@ -12,7 +12,17 @@ router.get('/', async function(req, res, next) {
 
 router.get('/map', async function(req,res,next) {
   const getLatlong = await Db.getLatLong();
-  res.render('map', { maps: getLatlong.rows });
+  const totalConfirmed = await Db.getTotalConfirmed();
+  const totalRecovered = await Db.getTotalRecovered();
+  const totalDeaths = await Db.getTotalDeaths();
+
+  const objectTotal = {
+    totalConfirmed: totalConfirmed.rows[0].confirmed,
+    totalRecovered: totalRecovered.rows[0].recovered,
+    totalDeaths: totalDeaths.rows[0].death
+}
+  
+  res.render('map', { totalObject: objectTotal, maps: getLatlong.rows });
 
 });
 
