@@ -68,5 +68,11 @@ router.get('/graph', async function(req, res, next) {
   });
 });
 
+router.get('/chart',async function(req, res, next) {
+  const result = await Db.getChart();
+  console.log(result.rows);
+  res.render('chart', { resultData: result.rows });
+});
+
 
 module.exports = router;
