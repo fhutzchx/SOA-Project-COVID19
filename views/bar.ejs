@@ -91,7 +91,7 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/bar">Bar</a></li>
+                                    <li class="breadcrumb-item"><a href="/chart">Doughnut</a></li>
                                     <li class="breadcrumb-item active">Live</li>
                                 </ol>
                             </div>
@@ -144,7 +144,7 @@
             var mychart = document.getElementById('Chart').getContext('2d');
             var chart = new Chart(mychart, {
                 // The type of chart we want to create
-                type: 'doughnut',
+                type: 'bar',
                 // The data for our dataset
                 data: {
                     labels: ['Confirmed', 'Recover', 'Death'],
