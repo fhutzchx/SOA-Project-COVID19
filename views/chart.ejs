@@ -99,7 +99,6 @@
                     </div>
                 </div>
                 
-                <canvas id="Chart"></canvas>
 
                 <div class="container-fluid mt-2">
                     <div id="toolbar">
@@ -112,7 +111,9 @@
                     </table>
                 </div>
 
-               
+                <canvas id="Chart" style="display: block;"></canvas>
+
+
 
 
 
@@ -138,18 +139,20 @@
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
                 <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
                 <!-- Javascript-->
                 <% resultData.forEach(function(data){ %>
                     <script>
-                        var ctx = document.getElementById('Chart').getContext('2d');
-            var chart = new Chart(ctx, {
+            var mychart = document.getElementById('Chart').getContext('2d');
+            var chart = new Chart(mychart, {
                 // The type of chart we want to create
                 type: 'pie',
                 // The data for our dataset
                 data: {
                     labels: ['Confirmed', 'Recover', 'Death'],
                     datasets: [{
-                        backgroundColor: ['blue','green','red'],
+                        backgroundColor: ['orange',':#18ce0f','red'],
                         data: [
                         '<%=data.date_conf%>',
                         '<%=data.date_recover%>',  
@@ -163,7 +166,8 @@
                 options: {}
             });
                     </script>
-                     <% }); %>
+
+                    <% }); %>
 </body>
 
 </html>
