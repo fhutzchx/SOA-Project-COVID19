@@ -10,43 +10,13 @@ router.get('/', async function(req, res, next) {
   });
 });
 
-// router.get('/map', async function(req,res,next) {
-//   const getLatlong = await Db.getLatLong();
-//   const totalConfirmed = await Db.getTotalConfirmed();
-//   const totalRecovered = await Db.getTotalRecovered();
-//   const totalDeaths = await Db.getTotalDeaths();
-
-//   const objectTotal = {
-//     totalConfirmed: totalConfirmed.rows[0].confirmed,
-//     totalRecovered: totalRecovered.rows[0].recovered,
-//     totalDeaths: totalDeaths.rows[0].death
-// }
+router.get('/map', async function(req,res,next) {
+  const getLatlong = await Db.getLatLong();
+  const getConfirmed = await Db.getAllConfirmed();
   
-//   res.render('map', { totalObject: objectTotal, maps: getLatlong.rows });
+  res.render('map', { maps: getLatlong.rows, confirmed: getConfirmed.rows });
 
-// });
-
-router.get('/map', async function (req, res, next) {
-  const result = await Db.getLatLongCountry();
-  const Country = await Db.getAllCountry();
-  const Recovered = await Db.getLastUpdateRecovered();
-  const Deaths = await Db.getLastUpdateDeaths();
-  var i = 0;
-  var reduceArrayMap = [];
-  for (var index = 0; index < Country.rows.length; index++) {
-    if (Country.rows[index].confirmed != 0 && Recovered.rows[index].recovered != 0 || Deaths.rows[index].deaths != 0) {
-      reduceArrayMap[i] = {
-        state: result.rows[index].state,
-        country: result.rows[index].country,
-        lat: result.rows[index].lat,
-        long: result.rows[index].long,
-      }
-      i++;
-    }
-  }
-  res.render('map', { Maps: reduceArrayMap });
 });
-
 
 router.get('/table', async function(req,res,next) {
 const result = await Db.getAllCountry();

@@ -148,7 +148,7 @@
                 <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
                 <script src="/js/map.js"></script>
-                <script>getMap(`<%-JSON.stringify(Maps)%>`)</script>
+                <script>getMap(`<%- JSON.stringify(maps) %>`, `<%- JSON.stringify(confirmed) %>`)</script>
 
 
 </body>
