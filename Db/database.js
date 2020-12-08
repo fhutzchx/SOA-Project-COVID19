@@ -162,6 +162,38 @@ const getLastWeekDeaths = async () => {
 ///////////////////// End getChart /////////////////////
 
 
+const getLatLongCountry = async () => {
+    const sql = `select "Province/State" as State, "Country/Region" as Country, lat, long from covid19_confirmed_csv`;
+    try {
+        const data = await pool.query(sql);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
+
+const getLastUpdateRecovered = async () => {
+    const sql = `SELECT "3/22/20" as Recovered from covid19_recovered_csv`;
+    try {
+        const data = await pool.query(sql);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
+
+const getLastUpdateDeaths = async () => {
+    const sql = `SELECT "3/22/20" as Deaths from covid19_death_csv`;
+    try {
+        const data = await pool.query(sql);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
 
 
 
@@ -178,5 +210,9 @@ module.exports = {
     getLastWeekConfirmed,
     getLastWeekRecovered,
     getLastWeekDeaths,
+
+    getLatLongCountry,
+    getLastUpdateRecovered,
+    getLastUpdateDeaths,
 
 }
