@@ -15,7 +15,7 @@ router.get('/map', async function(req,res,next) {
   const getConfirmed = await Db.getAllConfirmed();
   const getRecovered = await Db.getAllRecoveredMap();
   const getDeath = await Db.getAllDeathMap();
-  
+
   res.render('map', { maps: getLatlong.rows, confirmed: getConfirmed.rows , recovered: getRecovered.rows, death: getDeath.rows });
 
 });

@@ -43,7 +43,7 @@ const getAllRecovered = async() => {
 }
 
 const getAllRecoveredMap = async() => {
-    const sql= `SELECT "3/23/20" as Confirmed from covid19_recovered_csv`
+    const sql= `SELECT "3/23/20" as Recovered from covid19_recovered_csv`
     try {
         const data = await pool.query(sql);
         return data;
@@ -65,7 +65,7 @@ const getAllDeath = async() => {
 }
 
 const getAllDeathMap = async() => {
-    const sql= `SELECT "3/23/20" as Confirmed from covid19_death_csv`
+    const sql= `SELECT "3/23/20" as Death from covid19_death_csv`
     try {
         const data = await pool.query(sql);
         return data;
