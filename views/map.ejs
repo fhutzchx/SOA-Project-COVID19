@@ -41,6 +41,12 @@
     <link href="https://unpkg.com/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" rel="stylesheet">
     <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-tag-filter-button@0.0.4/src/leaflet-tag-filter-button.css" />     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-tag-filter-button@0.0.4/docs/assets/css/ripple.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-tag-filter-button@0.0.4/docs/assets/js/leaflet-easy-button.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-tag-filter-button@0.0.4/src/leaflet-tag-filter-button.js"></script>
 </head>
 
 <body>
@@ -150,7 +156,7 @@
                 <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
                 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
                 <script src="/js/map.js"></script>
-                <script>getMap(`<%- JSON.stringify(maps) %>`, `<%- JSON.stringify(confirmed) %>`)</script>
+                <script>getMap(`<%- JSON.stringify(maps) %>`, `<%- JSON.stringify(confirmed) %>`, `<%- JSON.stringify(recovered) %>`, `<%- JSON.stringify(death) %>`)</script>
 
 
 </body>

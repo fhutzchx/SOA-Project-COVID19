@@ -42,7 +42,29 @@ const getAllRecovered = async() => {
     }
 }
 
+const getAllRecoveredMap = async() => {
+    const sql= `SELECT "3/23/20" as Confirmed from covid19_recovered_csv`
+    try {
+        const data = await pool.query(sql);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
+
 const getAllDeath = async() => {
+    const sql= `SELECT "3/23/20" as Confirmed from covid19_death_csv`
+    try {
+        const data = await pool.query(sql);
+        return data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
+
+const getAllDeathMap = async() => {
     const sql= `SELECT "3/23/20" as Confirmed from covid19_death_csv`
     try {
         const data = await pool.query(sql);
@@ -170,7 +192,6 @@ async function getChart(){
     const data = await pool.query(sql);
     //console.log(data);
     return data;
-
 }
 
 
@@ -178,7 +199,9 @@ module.exports = {
     getAllCountry,
     getAllConfirmed,
     getAllRecovered,
+    getAllRecoveredMap,
     getAllDeath,
+    getAllDeathMap,
     getLatLong,
     getTotalConfirmed,
     getTotalRecovered,
@@ -186,6 +209,6 @@ module.exports = {
     getLastWeekConfirmed,
     getLastWeekRecovered,
     getLastWeekDeaths,
-    getChart
+    getChart,
 
 }
